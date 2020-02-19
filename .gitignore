@@ -1,10 +1,10 @@
 /env
 
-submissionfile_a
-submissionfile_b
-submissionfile_c
-submissionfile_e
-submissionfile_f
+/submissionfile_a
+/submissionfile_b
+/submissionfile_c
+/submissionfile_e
+/submissionfile_f
 
-*.swp
-*.swo
+/*.swp
+/*.swo
