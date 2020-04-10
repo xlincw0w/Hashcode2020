@@ -64,43 +64,6 @@ def generateFile(inp, outfilename):
     print('Participant left : ', participant_left) 
     print('\n\n')
     
-    # More optimisation
-
-    if (len(left_pizza_slices) >= 2):
-        print('Some more efforts !')
-
-        i = N_pizza_types - submission_pizza_types - 1
-        j = submission_pizza_types - 1
-
-        while(i != 0):
-            for ii in range(i, 1, -1):
-                chosen_index = submission_slices[j]
-                chosen_value = pizza_slices[chosen_index]
-                left_index = left_pizza_slices[i]
-                left_value = pizza_slices[left_index]
-                second_index = left_pizza_slices[i - ii]
-                second_value = pizza_slices[second_index]
-                temp_left = participant_left + chosen_value
-
-                sums = left_value + second_value
-                edited_left = temp_left - sums
-
-                if (edited_left > 0): 
-                    adjusted_reward = reward - chosen_value + left_value + second_value
-                    if (edited_left < participant_left):
-                        # Case we should readjust
-                        print(bcolors.WARNING, 'This bloc can be improved ! ', bcolors.ENDC)
-                        print('Reward : ', reward)
-                        print('Adjusted reward : ', adjusted_reward)
-                        print('First value : ', left_value)
-                        print('Second value : ', second_value)
-                        print('Origin left : ', participant_left)
-                        print('Edited left : ', edited_left)
-                        print('Reward to satisfy : ', temp_left)
-                        print('Sum of both values : ', sums, '\n\n')
-
-            i -= 1
-
     submission_file = open(outfilename, 'w')
     submission_file.write(str(submission_pizza_types))
     submission_file.write('\n')
@@ -120,8 +83,8 @@ if __name__ == '__main__':
 
     generateFile(fa, 'submissionfile_a')
     generateFile(fb, 'submissionfile_b')
-    #generateFile(fc, 'submissionfile_c')
-    #generateFile(fd, 'submissionfile_d')
-    #generateFile(fe, 'submissionfile_e')
+    generateFile(fc, 'submissionfile_c')
+    generateFile(fd, 'submissionfile_d')
+    generateFile(fe, 'submissionfile_e')
 
     print(bcolors.OKGREEN, '\nSubmission files generated !\n\n', bcolors.ENDC)
